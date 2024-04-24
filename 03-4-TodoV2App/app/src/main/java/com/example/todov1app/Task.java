@@ -5,9 +5,12 @@ import java.io.Serializable;
 public class Task implements Serializable {
     String name, description;
 
-    public Task(String name, String description) {
+    Priority priority; // Adição da prioridade da tarefa
+
+    public Task(String name, String description, Priority priority) {
         this.name = name;
         this.description = description;
+        this.priority = priority;
     }
 
     public String getName() {
@@ -24,6 +27,14 @@ public class Task implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 
     @Override

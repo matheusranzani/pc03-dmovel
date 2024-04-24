@@ -121,11 +121,35 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.showItem:
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     Task tTask = tasks.get(currentPosition);
-                    String tMsg = "Name: " + tTask.getName() + "\n" + "Description: " + tTask.getDescription();
+                    String tMsg = "Name: " + tTask.getName() + "\n" +
+                                  "Description: " + tTask.getDescription() + "\n" +
+                                  "Priority: " + tTask.getPriority().toString().toLowerCase();
                     builder.setTitle("Task details");
                     builder.setMessage(tMsg);
                     builder.setPositiveButton("OK", null);
                     builder.create().show();
+                    mode.finish();	//encerra o action mode
+                    return true;
+
+                // Ação de priorizar uma tarefa
+                case R.id.prioritizeItem:
+                    tTask = tasks.get(currentPosition);
+
+                    switch (tTask.getPriority()) {
+                        case LOW:
+                            tTask.setPriority(Priority.MEDIUM);
+                            Toast.makeText(MainActivity.this, "Priority raised for the selected task!", Toast.LENGTH_SHORT).show();
+                            break;
+                        case MEDIUM:
+                            tTask.setPriority(Priority.HIGH);
+                            Toast.makeText(MainActivity.this, "Priority raised for the selected task!", Toast.LENGTH_SHORT).show();
+                            break;
+                        case HIGH:
+                            Toast.makeText(MainActivity.this, "The selected task already has the highest priority!", Toast.LENGTH_LONG).show();
+                            break;
+                    }
+
+                    taskRecyclerViewAdapter.notifyDataSetChanged();
                     mode.finish();	//encerra o action mode
                     return true;
 

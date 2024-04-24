@@ -17,16 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addNewButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+  <Button
+    android:id="@+id/addNewButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="136dp"
+    android:text="Add"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-    <com.google.android.material.textfield.TextInputLayout
+  <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,4 +60,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+
+  <TextView
+    android:id="@+id/radioGroupLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/rdg_label"
+    android:textSize="20dp"
+    android:textAppearance="?attr/textAppearanceHeadline5"
+    app:layout_constraintBottom_toTopOf="@+id/radioGroupPriority"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+  <RadioGroup
+    android:id="@+id/radioGroupPriority"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toTopOf="@+id/addNewButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.497"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+    app:layout_constraintVertical_bias="0.735">
+
+    <RadioButton
+      android:id="@+id/radioButtonLow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="12dp"
+      android:text="@string/rdb_low"
+      android:textSize="16dp"
+      tools:layout_editor_absoluteX="66dp"
+      tools:layout_editor_absoluteY="178dp" />
+
+    <RadioButton
+      android:id="@+id/radioButtonMedium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="12dp"
+      android:text="@string/rdb_medium"
+      android:textSize="16dp"
+      tools:layout_editor_absoluteX="66dp"
+      tools:layout_editor_absoluteY="178dp" />
+
+    <RadioButton
+      android:id="@+id/radioButtonHigh"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/rdb_high"
+      android:textSize="16dp"
+      tools:layout_editor_absoluteX="66dp"
+      tools:layout_editor_absoluteY="178dp" />
+
+  </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
